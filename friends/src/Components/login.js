@@ -1,7 +1,7 @@
 import React from 'react'
 import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux'
-import {login} from '../Actions/index'
+import {login} from '../Actions'
 
 class Login extends React.Component
 {
@@ -26,6 +26,8 @@ class Login extends React.Component
   login = (e) =>
   {
     e.preventDefault();
+    console.log("This credentials", this.state.credentials)
+
     this.props
     .login(this.state.credentials)
     .then(() => this.props.history.push('/protected'))
@@ -37,12 +39,12 @@ class Login extends React.Component
       <div>
         <form onSubmit={this.login}>
           <div>
-            <label htmlFor="login">UserName </label>
-            <input type="text" name='login' placeholder="username or email" />
+            <label htmlFor="username">UserName </label>
+            <input type="text" name='username' placeholder="username or email" onChange={this.handleChange}/>
           </div>
           <div>
             <label htmlFor="password">UserName </label>
-            <input type="password" name='password' placeholder="enter your password" />
+            <input type="password" name='password' placeholder="enter your password" onChange={this.handleChange}/>
           </div>
           <br />
           <div>
