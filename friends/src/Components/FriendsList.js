@@ -1,8 +1,58 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import Loader from 'react-loader-spinner'
 
-export const FriendsList = () =>{
-return(
-  <div>Friends List</div>
+import { getData, deleteFriends } from '../Actions'
 
-)
+class FriendsList extends React.Component
+{
+  state: {
+    deletingFriend: null
+  }
+
+  componentDidMount()
+  {
+    this.props.getData()
+  }
+
+  deleteFriend = id =>
+  {
+    this.setState({ deletingFriendId: id })
+    this.props.deleteFriends(id)
+  }
+
+  render()
+  {
+    if (this.props.fetchingFriends)
+    {
+      return <Loader type="Puff" height="100" width="100" />
+    }
+    return (
+      <div>
+        <h2>Friends</h2>
+        {this.props.friends.map(friend =>(
+          <div className="friend-card">
+            <i class="fas fa-times" onClick={() => this.deleteFriend(friend.id)} />
+            <h4>{friend.name}</h4>
+            <p>{friend.email}</p>
+
+          </div>
+        ))}
+        <div>Friends List</div>
+
+      </div>
+    )
+  }
 }
+
+const mapStateToProps = ({ deletingFriend, friends, fetchingFriends }) => ({
+  deletingFriend,
+  friends,
+  fetchingFriends
+})
+
+export default withRouter(
+  connect(mapStateToProps, { getData, deleteFriends })(FriendsList)
+)
+
