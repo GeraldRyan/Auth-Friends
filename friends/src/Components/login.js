@@ -1,6 +1,6 @@
 import React from 'react'
 import Loader from 'react-loader-spinner';
-
+import {connect} from 'react-redux'
 
 export function Login()
 {
