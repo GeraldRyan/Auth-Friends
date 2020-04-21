@@ -1,3 +1,6 @@
+// important did you add a default? 
+
+
 const initialState = {
   friends: [],
   loggingIn: false,
@@ -8,7 +11,7 @@ const initialState = {
   token: localStorage.getItem('token')
 }
 
-const reducers = (state = initialState, action) =>
+export const reducer = (state = initialState, action) =>
 {
   console.log("action", action)
   switch (action.type)
@@ -20,15 +23,22 @@ const reducers = (state = initialState, action) =>
     case "LOGIN_SUCCESS":
       return {
         ...state, loggingIn: false,
-        token:action.payload
+        token: action.payload
       }
-      case "FETCH_DATA_SUCCESS":
-        return {
-          ...state, 
-          error: '',
-          errorStatusCode: null,
-          fetchingFriends: false,
-          friends: action.payload
-        }
+    case 'FETCH_DATA_START':
+      return {
+        ...state,
+        fetchingFriends: true
+      }
+    case "FETCH_DATA_SUCCESS":
+      return {
+        ...state,
+        error: '',
+        errorStatusCode: null,
+        fetchingFriends: false,
+        friends: action.payload
+      }
+      default:
+        return state;  //important
   }
 }
