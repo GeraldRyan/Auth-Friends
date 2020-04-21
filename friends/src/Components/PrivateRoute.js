@@ -1,3 +1,7 @@
-export const PrivateRoute = ({
+import React from 'react'
 
-})
+export const PrivateRoute = () => {
+return(
+  <div></div>
+)
+}
