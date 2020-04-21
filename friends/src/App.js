@@ -1,12 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Login} from './login'
+import {Login} from './Components/login'
 
 function App() {
   return (
     <div className="App">
-    This is content
+    <h1>Visit your friends</h1>
     <Login></Login>
     </div>
   );
