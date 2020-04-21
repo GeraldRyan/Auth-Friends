@@ -36,7 +36,7 @@ class FriendsList extends React.Component
             <i class="fas fa-times" onClick={() => this.deleteFriend(friend.id)} />
             <h4>{friend.name}</h4>
             <p>{friend.email}</p>
-
+            {this.props.deletingFriend && this.state.deletingFriendID === friend.id && (<p>Deleting Friend</p>)}
           </div>
         ))}
         <div>Friends List</div>
