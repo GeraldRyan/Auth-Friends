@@ -4,6 +4,13 @@ import React from 'react'
 
 export function Login()
 {
+
+  const handleClick = () =>
+  {
+
+  }
+
+
   return (
     <div>
       <div>
@@ -13,6 +20,10 @@ export function Login()
       <div>
         <label htmlFor="password">UserName </label>
         <input type="password" name='password' placeholder="enter your password" />
+      </div>
+      <br/>
+      <div>
+        <button onClick='handleClick'>Submit!</button>
       </div>
     </div>
 
