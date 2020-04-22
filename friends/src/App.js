@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import PrivateRoute from './Components/PrivateRoute'
 import FriendsList from './Components/FriendsList'
 import {Navbar} from './Components/Navbar'
+import AddFriend from './Components/AddFriend'
 
 import Login from './Components/Login'
 
@@ -23,6 +24,7 @@ function App()
         <br/>
         <Route path="/login" component={Login} />
         <PrivateRoute exact path="/protected" component={FriendsList} />
+        <PrivateRoute exact path='/addfriend' component={AddFriend} />
 
       </div>
     </Router>
