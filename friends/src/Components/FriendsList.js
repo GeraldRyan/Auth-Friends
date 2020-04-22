@@ -39,7 +39,7 @@ class FriendsList extends React.Component
             {this.props.deletingFriend && this.state.deletingFriendID === friend.id && (<p>Deleting Friend</p>)}
           </div>
         ))}
-        <div>Friends List</div>
+
 
       </div>
     )
