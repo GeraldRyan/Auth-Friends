@@ -50,7 +50,7 @@ const mapStateToProps = ({ deletingFriend, friends, fetchingFriends }) => ({
   deletingFriend,
   friends,
   fetchingFriends
-})
+})  // subscribes to these items from the store. Store = state I think, and the second instance is props.  
 
 export default withRouter(
   connect(mapStateToProps, { getData, deleteFriends })(FriendsList)

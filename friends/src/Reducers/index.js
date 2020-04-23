@@ -38,6 +38,11 @@ export const reducer = (state = initialState, action) =>
         fetchingFriends: false,
         friends: action.payload
       }
+    case "ADDING_FRIENDS":
+      return{
+        ...state,
+        friends:[...state.friends,action.payload]
+      }
       default:
         return state;  //important
   }
